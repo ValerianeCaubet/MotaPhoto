@@ -1,0 +1,91 @@
+@charset "UTF-8";
+.header {
+  font-size: 16px;
+  font-family: "space_monoregular", monospace;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.header-container {
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 30px 0;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.header-menu {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.header-menu li a {
+  text-decoration: none;
+  color: #000;
+  padding: 0 15px;
+  text-transform: uppercase;
+}
+
+@font-face {
+  font-family: "space_monoitalic";
+  src: url("../assets/fonts/SpaceMono-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "space_monoregular";
+  src: url("../assets/fonts/SpaceMono-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+footer {
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  font-size: 16px;
+  font-family: "space_monoregular", monospace;
+  border-top: 1px solid black;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-menu {
+  list-style: none; /* Enlève les puces */
+  display: flex;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.footer-menu li {
+  padding: 0 40px; /* Espacement entre les éléments de menu */
+}
+
+.footer-menu li a {
+  text-decoration: none; /* Enlève le soulignement des liens */
+  color: #000; /* Couleur des liens */
+  text-transform: uppercase;
+}/*# sourceMappingURL=style.css.map */

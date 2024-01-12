@@ -6,6 +6,17 @@ function enqueue_custom_styles() {
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_styles');
 
+// Ajout de jQuery d'un CDN et des scripts JS personnalisés
+function script_JS_Custom() {
+    // Ajout de jQuery
+    wp_enqueue_script('jquery-cdn', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js', array(), '3.7.1', true);
+
+    // Gestion de la Modale (script jQuery)
+    wp_enqueue_script('modale', get_stylesheet_directory_uri() . '/js/modale.js', array('jquery'), '1.0.0', true);
+}
+
+add_action('wp_enqueue_scripts', 'script_JS_Custom');
+
 // Enregistrement des menus
 function register_menus() {
     register_nav_menus(
@@ -16,5 +27,6 @@ function register_menus() {
     );
 }
 add_action('init', 'register_menus');
+
 
 ?>

@@ -10,5 +10,8 @@
         ) );
       ?>
     </nav>
-
+    
+     <!--chargement du template modale.php  -->
+     <?php get_template_part('template-part/modale'); ?>
+     
 </footer>

@@ -1,0 +1,54 @@
+// CSS pour la superposition modale
+
+.popup-overlay {
+    position: fixed;                    // Position fixe pour couvrir l'intégralité de la fenêtre d'affichage
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 3, 0.8);   // Fond noir semi-transparent pour l'effet de superposition
+    display: none;                      // Initialement masqué, sera affiché par JavaScript pour afficher la fenêtre modale
+    justify-content: center;            // Centre le contenu verticalement
+    align-items: center;                // Centre le contenu horizontalement
+    z-index: 9999;                      // Z-index élevé pour s'assurer que la superposition apparaît au-dessus
+
+    &.open {
+        display: flex;                  // Affiche la superposition lorsqu'elle a la classe "open"
+    }
+}
+
+
+.popup-contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 512px;
+    border: 5px solid black;
+    background: white;
+    margin-top: 16px;
+    padding: 8px 40px 40px 40px;
+    height: auto;
+    overflow: hidden;
+}
+
+// Style CF7
+/* Styliser le conteneur de formulaire CF7 */
+.wpcf7 {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+}
+
+/* Styliser les labels */
+.wpcf7 label {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+

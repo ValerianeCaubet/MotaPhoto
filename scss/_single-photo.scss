@@ -1,0 +1,222 @@
+// CSS de la page single photo
+
+.page-container{
+    margin:0 auto;
+    width: 100%;
+    max-width: 1200px;
+    position: relative;
+    @media screen and (max-width: 1250px) {
+      width: 90%;
+    }
+  } 
+  
+  .main-content {
+    margin-top: 40px;
+      width: 100%;
+      height: 843px;
+    }
+    .content-body {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+      margin-bottom: 20px;
+      @media screen and (max-width: 700px) {
+          flex-direction: column-reverse;
+          align-items: center;
+          height: 100%;
+        }      
+      }
+    
+    .title-type {
+      font-family: "space_monoregular";
+      text-transform: uppercase;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      align-items: flex-start;
+      width: 50%;
+      height: 100%;
+      border-bottom: 2px solid black;
+      border-bottom-width: 40%;
+      margin-right: 1%;
+      @media screen and (max-width: 700px) {
+          width: 100%;
+          margin-right: 0;
+        }
+    }
+    .pic-title {
+      font-style: italic;
+      font-weight: 400;
+      line-height: 58px;
+      letter-spacing: 0em;
+      font-size: 66px;
+      width: 67%;
+      line-height: 70px;
+      @media screen and (max-width: 768px) {
+        text-align: center;
+        font-size: 40px;
+        width: 100%;
+        line-height: 40px;
+      }
+    }
+    .title-type p {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+      
+    }
+    .photo-container {
+      height: 100%;
+      width: 50%;
+    }
+    .photo-container img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  
+    // section contact et carrousel
+    .contact-carrousel {
+      display: flex;
+      height: 118px;
+      width: 100%;
+      justify-content: space-between;
+      border-bottom: 2px solid black;
+      @media screen and (max-width: 600px) {
+        flex-direction: column;
+      }
+    }
+  
+    .contact-btn {
+      display: flex;
+      align-items: center;
+      @media screen and (max-width: 600px) {
+        flex-direction: column;
+      }
+    }
+  
+    .contact-btn h4{
+      font-family: "PoppinsRegular";
+      font-size: 14px;
+      font-weight: 300;
+      }
+  
+    #boutonContact {
+      font-family: "space_monoregular";
+      font-size: 12px;
+      font-weight: 400;
+      margin-left: 80px;
+      padding: 15px 90px;
+      border: 2px solid transparent;
+      background-color: #D8D8D8;
+      cursor: pointer;
+      @media screen and (max-width: 600px) {
+        margin-right: 25%;
+        padding: 10px 30px; 
+    }
+    }
+  
+    #boutonContact:hover {
+      border: 2px solid black;
+    }
+  
+  // partie carrousel miniature
+  .interaction-photo {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    padding-bottom: 1em;
+    height: 118px;
+    &__navigation {
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column-reverse;
+        width: 6%;
+        .div-preview {
+            position: relative;
+            height: 8em;
+            .preview {
+                img {
+                  margin-top: 20px;
+                  object-fit: contain;
+                  max-height: 100px;
+                  width: 100%;
+                }
+            }
+            .previous-image, .next-image {
+                visibility: hidden;
+                position: absolute;
+            }
+        }
+        .arrows {
+            display: flex;
+            justify-content: space-between;
+        }
+        @media screen and (max-width: 600px) {
+          display: none; // Masque .interaction-photo__navigation en mode mobile
+        }
+    }
+    @media screen and (max-width: 600px) {
+      display: none; // Masque .interaction-photo en mode mobile
+    }
+  }
+  
+  // section photos apparentées
+  .photo-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    @media screen and (max-width: 768px) {
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+  .suggested-photo-container h3{
+    font-family: "space_monoregular";
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 400;
+    @media screen and (max-width: 765px) {
+      text-align: center;
+    }
+  }
+  
+  .suggested-photo {
+    width: 48%;
+    margin: 1%;
+  }
+  
+  .suggested-photo img {
+    width: 100%;
+    height: 60vh;
+    object-fit: cover;
+    @media screen and (max-width: 1200px) {
+      height: 50vh;    
+    }
+    @media screen and (max-width: 768px) {
+      height: 30vh;    
+    }
+  }
+  
+  // Toutes les photos
+  .all-photos-btn {
+    display: flex;
+    justify-content: center;
+  }
+  
+  #button-photos {
+    font-family: "space_monoregular";
+    font-size: 12px;
+    font-weight: 400;
+    margin : 20px 0 40px;
+    padding: 15px 90px;
+    border: 2px solid transparent;
+    background-color: #D8D8D8;
+    cursor: pointer;
+  }
+  
+  #button-photos:hover {
+    border: 2px solid black;
+  }

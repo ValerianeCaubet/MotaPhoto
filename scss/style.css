@@ -137,4 +137,296 @@ footer {
   margin-top: 20px;
   margin-bottom: 5px;
   font-weight: bold;
+}
+
+/* Styliser les champs de saisie et de texte */
+.form {
+  border-radius: 8px;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px; /* Espace entre les champs */
+  border: 1px solid #ccc; /* Bordure des champs */
+  box-sizing: border-box; /* Pour s'assurer que le padding ne change pas la largeur */
+}
+
+/* Styliser le champ textarea séparément pour contrôler la hauteur */
+.form-textarea {
+  width: 100%;
+  resize: none; /* Empêche l'utilisateur de redimensionner */
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  height: 190px; /* Ajustez la hauteur selon vos besoins */
+}
+
+/* Styliser le bouton d'envoi */
+.submit-button {
+  font-family: "space_monoregular";
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 18px;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #D8D8D8;
+  /* Couleur de fond du bouton */
+  color: #000000; /* Couleur du texte du bouton */
+  border: none;
+  margin-top: 10px; /* Espace avant le bouton */
+  cursor: pointer;
+}
+
+/* Ajouter des styles pour les états hover et focus des boutons et champs */
+.form:hover,
+.form:focus,
+.submit-button:hover {
+  border-color: #666; /* Couleur de bordure lors du survol ou du focus */
+}
+
+.page-container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+}
+@media screen and (max-width: 1250px) {
+  .page-container {
+    width: 90%;
+  }
+}
+
+.main-content {
+  margin-top: 40px;
+  width: 100%;
+  height: 843px;
+}
+
+.content-body {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 700px) {
+  .content-body {
+    flex-direction: column-reverse;
+    align-items: center;
+    height: 100%;
+  }
+}
+
+.title-type {
+  font-family: "space_monoregular";
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: flex-start;
+  width: 50%;
+  height: 100%;
+  border-bottom: 2px solid black;
+  border-bottom-width: 40%;
+  margin-right: 1%;
+}
+@media screen and (max-width: 700px) {
+  .title-type {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+.pic-title {
+  font-style: italic;
+  font-weight: 400;
+  line-height: 58px;
+  letter-spacing: 0em;
+  font-size: 66px;
+  width: 67%;
+  line-height: 70px;
+}
+@media screen and (max-width: 768px) {
+  .pic-title {
+    text-align: center;
+    font-size: 40px;
+    width: 100%;
+    line-height: 40px;
+  }
+}
+
+.title-type p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.photo-container {
+  height: 100%;
+  width: 50%;
+}
+
+.photo-container img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.contact-carrousel {
+  display: flex;
+  height: 118px;
+  width: 100%;
+  justify-content: space-between;
+  border-bottom: 2px solid black;
+}
+@media screen and (max-width: 600px) {
+  .contact-carrousel {
+    flex-direction: column;
+  }
+}
+
+.contact-btn {
+  display: flex;
+  align-items: center;
+}
+@media screen and (max-width: 600px) {
+  .contact-btn {
+    flex-direction: column;
+  }
+}
+
+.contact-btn h4 {
+  font-family: "PoppinsRegular";
+  font-size: 14px;
+  font-weight: 300;
+}
+
+#boutonContact {
+  font-family: "space_monoregular";
+  font-size: 12px;
+  font-weight: 400;
+  margin-left: 80px;
+  padding: 15px 90px;
+  border: 2px solid transparent;
+  background-color: #D8D8D8;
+  cursor: pointer;
+}
+@media screen and (max-width: 600px) {
+  #boutonContact {
+    margin-right: 25%;
+    padding: 10px 30px;
+  }
+}
+
+#boutonContact:hover {
+  border: 2px solid black;
+}
+
+.interaction-photo {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  padding-bottom: 1em;
+  height: 118px;
+}
+.interaction-photo__navigation {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column-reverse;
+  width: 6%;
+}
+.interaction-photo__navigation .div-preview {
+  position: relative;
+  height: 8em;
+}
+.interaction-photo__navigation .div-preview .preview img {
+  margin-top: 20px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  max-height: 100px;
+  width: 100%;
+}
+.interaction-photo__navigation .div-preview .previous-image, .interaction-photo__navigation .div-preview .next-image {
+  visibility: hidden;
+  position: absolute;
+}
+.interaction-photo__navigation .arrows {
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (max-width: 600px) {
+  .interaction-photo__navigation {
+    display: none;
+  }
+}
+@media screen and (max-width: 600px) {
+  .interaction-photo {
+    display: none;
+  }
+}
+
+.photo-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+}
+@media screen and (max-width: 768px) {
+  .photo-suggestions {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.suggested-photo-container h3 {
+  font-family: "space_monoregular";
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 400;
+}
+@media screen and (max-width: 765px) {
+  .suggested-photo-container h3 {
+    text-align: center;
+  }
+}
+
+.suggested-photo {
+  width: 48%;
+  margin: 1%;
+}
+
+.suggested-photo img {
+  width: 100%;
+  height: 60vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (max-width: 1200px) {
+  .suggested-photo img {
+    height: 50vh;
+  }
+}
+@media screen and (max-width: 768px) {
+  .suggested-photo img {
+    height: 30vh;
+  }
+}
+
+.all-photos-btn {
+  display: flex;
+  justify-content: center;
+}
+
+#button-photos {
+  font-family: "space_monoregular";
+  font-size: 12px;
+  font-weight: 400;
+  margin: 20px 0 40px;
+  padding: 15px 90px;
+  border: 2px solid transparent;
+  background-color: #D8D8D8;
+  cursor: pointer;
+}
+
+#button-photos:hover {
+  border: 2px solid black;
 }/*# sourceMappingURL=style.css.map */

@@ -52,3 +52,47 @@
     font-weight: bold;
 }
 
+/* Styliser les champs de saisie et de texte */
+.form {
+    border-radius: 8px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px; /* Espace entre les champs */
+    border: 1px solid #ccc; /* Bordure des champs */
+    box-sizing: border-box; /* Pour s'assurer que le padding ne change pas la largeur */
+}
+
+/* Styliser le champ textarea séparément pour contrôler la hauteur */
+.form-textarea {
+    width: 100%;
+    resize: none; /* Empêche l'utilisateur de redimensionner */
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    height: 190px; /* Ajustez la hauteur selon vos besoins */
+}
+
+/* Styliser le bouton d'envoi */
+.submit-button {
+    font-family: 'space_monoregular';
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 18px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #D8D8D8;
+
+     /* Couleur de fond du bouton */
+    color: #000000; /* Couleur du texte du bouton */
+    border: none;
+    margin-top: 10px; /* Espace avant le bouton */
+    cursor: pointer;
+}
+
+/* Ajouter des styles pour les états hover et focus des boutons et champs */
+.form:hover,
+.form:focus,
+.submit-button:hover {
+    border-color: #666; /* Couleur de bordure lors du survol ou du focus */
+}

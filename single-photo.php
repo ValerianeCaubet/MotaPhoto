@@ -15,18 +15,8 @@
                 <div class="title-type">
                     <h1 class="pic-title"><?php echo get_the_title() ?></h1>
                     <p>Référence : <span class="ref-val"><?php echo get_field('reference'); ?></span></p>
-                    <p>Catégorie : <?php 
-                        $categories = get_the_terms(get_the_ID(), 'categorie'); // get_the_ID() récupère l'ID du post actuel dans la boucle WordPress.
-                        foreach ( (array) $categories as $categorie ) {
-                        echo $categorie->name . ' '; 
-                    }
-                    ?></p>
-                    <p>Format : <?php 
-                        $formats = get_the_terms(get_the_ID(), 'format'); 
-                        foreach ( (array) $formats as $format ) {
-                        echo $format->name . ' ';
-                    }
-                    ?></p>
+                    <p>Catégorie : <?php the_terms(get_the_ID(), 'Categories', 'Aucune catégorie'); ?></p>
+                    <p>Format : <?php the_terms(get_the_ID(), 'Formats', 'Aucun format'); ?></p>
                     <p>Type : <?php echo get_field('type'); ?></p>
                     <p>Année : <?php echo get_field('annees'); ?></p>
                 </div>
@@ -102,21 +92,21 @@
                 <!-- récupération des photos de même catégorie avec WP_query -->
                 <?php
                 // arguments de la requête
+
                 $args = array(
                     'post_type' => 'photo',
-                    'posts_per_page' => 2, 
+                    'posts_per_page' => 2,
                     'orderby' => 'rand',
-                    'post__not_in' => array($post->ID),
-                    // affiche uniquement les photos de la même catégorie
+                    'post__not_in' => array(get_the_ID()),
                     'tax_query' => array(
                         array(
-                            'taxonomy' => 'categorie',
-                            'field'    => 'slug',
-                            'terms'    => $categories ? $categories[0]->slug : [],
+                            'taxonomy' => 'Categories',
+                            'field' => 'slug',
+                            'terms' => $category_slug,
                         ),
                     ),
-
                 );
+
 
                 // création d' une nouvelle instance de WP_Query
                 $query = new WP_Query($args);

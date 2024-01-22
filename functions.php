@@ -6,6 +6,9 @@ function enqueue_custom_styles() {
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_styles');
 
+// Désactivation des paragraphes automatiques dans Contact Form 7
+add_filter('wpcf7_autop_or_not', '__return_false');
+
 // Ajout de jQuery d'un CDN et des scripts JS personnalisés
 function script_JS_Custom() {
     // Ajout de jQuery
@@ -13,6 +16,9 @@ function script_JS_Custom() {
 
     // Gestion de la Modale (script jQuery)
     wp_enqueue_script('modale', get_stylesheet_directory_uri() . '/js/modale.js', array('jquery'), '1.0.0', true);
+
+    // Affichage des images miniature (script JQuery)
+    wp_enqueue_script('singleMiniature', get_stylesheet_directory_uri() . '/js/single-photo.js', array('jquery'), '1.0.0', true);
 }
 
 add_action('wp_enqueue_scripts', 'script_JS_Custom');

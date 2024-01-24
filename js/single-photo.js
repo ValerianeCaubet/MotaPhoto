@@ -1,44 +1,38 @@
-// Script du caroussel miniature de la page single.php
-
 console.log("single-photo.js est lancé");
 
 window.addEventListener("DOMContentLoaded", () => {
-
-
-
-// Single-page : Affichage de la photo miniature au survol des flèche
-
-  // Flèche gauche
   const arrowLeft = document.getElementById("arrow-left");
-  //Flèche droite
   const arrowRight = document.getElementById("arrow-right");
-  //Image gauche
   const previousImage = document.getElementById("previous-image");
-  //Image droite
   const nextImage = document.getElementById("next-image");
+  const currentImage = document.getElementById("current-image"); 
 
-
-  if( previousImage != null && arrowLeft != null) {
-  arrowLeft.addEventListener(
-    'mouseenter',
-    function(event) {
-        previousImage.style.visibility = "visible";
-        if ( nextImage != null) {
-          nextImage.style.visibility = "hidden";
-        }
+  if (previousImage != null && arrowLeft != null && currentImage != null) {
+    arrowLeft.addEventListener('mouseenter', function(event) {
+      previousImage.style.visibility = "visible";
+      currentImage.style.visibility = "hidden"; // Cache la miniature de la photo actuelle
+      if (nextImage != null) {
+        nextImage.style.visibility = "hidden";
       }
-    )
+    });
+
+    arrowLeft.addEventListener('mouseleave', function(event) {
+      previousImage.style.visibility = "hidden";
+      currentImage.style.visibility = "visible"; // Réaffiche la miniature de la photo actuelle
+    });
   }
 
-  if( nextImage != null && arrowRight != null) {
-    arrowRight.addEventListener(
-      'mouseenter',
-      function(event) {
-        nextImage.style.visibility = "visible";
-        previousImage.style.visibility = "hidden";
-      }
-    )
+  if (nextImage != null && arrowRight != null && currentImage != null) {
+    arrowRight.addEventListener('mouseenter', function(event) {
+      nextImage.style.visibility = "visible";
+      currentImage.style.visibility = "hidden"; // Cache la miniature de la photo actuelle
+      previousImage.style.visibility = "hidden";
+    });
+
+    arrowRight.addEventListener('mouseleave', function(event) {
+      nextImage.style.visibility = "hidden";
+      currentImage.style.visibility = "visible"; // Réaffiche la miniature de la photo actuelle
+    });
   }
+});
 
-
-})

@@ -14,9 +14,10 @@
 <header class="header">
     <div class="header-container">
         <div class="logo">
-            <a href="<?php echo home_url('/'); ?>">
-                <img src="<?php echo get_template_directory_uri(); ?>./assets/img/logo-mota.png" alt="Logo">
-            </a>
+        <a href="<?php echo home_url('/accueil/'); ?>">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-mota.png" alt="Logo">
+        </a>
+
         </div>
         <nav class="nav-link">
             <?php

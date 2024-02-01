@@ -8,6 +8,7 @@
     ?>
 
     <div class="page-container">
+        <div class="part-container"> 
 
         <!-- section détail photo -->
         <section class="main-content">
@@ -104,6 +105,7 @@
                     </div>
                 </div>
             </div>
+         </div>
         </section>
 <!-- section photos apparentées -->
 <section class="suggested-photo-container">       
@@ -122,12 +124,6 @@
                     'taxonomy' => 'categorie',
                     'field'    => 'slug',
                     'terms'    => $categories ? $categories[0]->slug : [],
-                ),
-            ),
-            'meta_query'     => array(
-                array(
-                    'key'     => '_thumbnail_id',
-                    'compare' => 'EXISTS',
                 ),
             ),
         );
@@ -158,4 +154,3 @@
 </div>
 <?php endwhile ?>
 <?php get_footer(); ?>
-

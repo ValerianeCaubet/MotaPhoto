@@ -1,32 +1,44 @@
 // CSS de la page single photo
 
-.page-container{
-    margin:0 auto;
-    width: 100%;
-    max-width: 1200px;
-    position: relative;
-    @media screen and (max-width: 1250px) {
+/* Règles pour .page-container */
+.page-container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+}
+
+@media screen and (max-width: 1250px) {
+  .page-container {
       width: 90%;
-    }
-  } 
-  
-  .main-content {
-    margin-top: 40px;
-      width: 100%;
-      height: 843px;
-    }
-    .content-body {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      margin: 0 auto;
-      margin-bottom: 20px;
-      @media screen and (max-width: 700px) {
-          flex-direction: column-reverse;
-          align-items: center;
-          height: 100%;
-        }      
-      }
+  }
+}
+
+/* Règles pour .part-container */
+.part-container {
+  height: calc(100vh - 85px); /* Utilisation de calc pour ajuster la hauteur */
+}
+
+/* Règles pour .main-content et .content-body */
+.main-content {
+  margin-top: 40px;
+  width: 100%;
+}
+
+.content-body {
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 700px) {
+  .content-body {
+      flex-direction: column-reverse;
+      align-items: center;
+  }
+}
+
     
     .title-type {
       font-family: "space_monoregular";
@@ -67,7 +79,7 @@
       
     }
     .photo-container {
-      height: 116vh; /* Hauteur du conteneur */
+      height: 100%; /* Hauteur du conteneur */
       width: 50%;
       display: flex;
       align-items: flex-end; /* Aligner en bas du conteneur */

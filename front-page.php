@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-<?php get_header(); ?>
 
 <!-- Hero -->
 <section class="hero">
@@ -31,4 +30,17 @@
     ?>
 <h1>PHOTOGRAPHE EVENT</h1>
 </section>
+
+<div class="page-container">
+
+<!-- Affichage des photos -->
+<div id="more_posts" class="photo-suggestions">    
+</div>
+
+<div id="more_photos" class="photo-suggestions">
+</div>
+
+
+</div>
+<!-- footer -->
 <?php get_footer(); ?>

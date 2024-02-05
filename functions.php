@@ -34,6 +34,44 @@ function register_menus() {
 }
 add_action('init', 'register_menus');
 
+// Ajout de Fancybox pour afficher la lightbox
+function enqueue_fancybox() {
+    // Inclure le CSS de Fancybox
+    wp_enqueue_style('fancybox-css', 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css');
+
+    // Inclure le JavaScript de Fancybox
+    wp_enqueue_script('fancybox-js', 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js', array('jquery'), null, true);
+
+    // Initialiser Fancybox
+    wp_add_inline_script('fancybox-js', '
+    function initFancybox() {
+        jQuery(".fancybox").fancybox({
+            buttons : [
+                "close"
+            ],
+            showNavArrows : false,
+            arrows : false,
+            infobar: false,
+            touch: false,
+            loop: true,
+            clickContent: false,
+            baseClass: "fancybox-custom-layout",
+            afterShow: function(instance, slide) {
+                console.log("Fancybox is working!");
+            }
+        });
+    }
+
+    jQuery(document).ready(function() {
+        initFancybox();
+    });
+
+    jQuery(document).ajaxComplete(function() {
+        initFancybox();
+    });
+');
+}
+add_action('wp_enqueue_scripts', 'enqueue_fancybox');
 
 
 

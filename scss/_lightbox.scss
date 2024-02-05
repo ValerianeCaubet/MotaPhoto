@@ -1,0 +1,81 @@
+// CSS de la lightbox 
+
+.fancybox-custom-layout .fancybox-bg {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Force les flèches à rester visibles */
+.fancybox-button--arrow_right,
+.fancybox-button--arrow_left {
+  visibility: visible !important; /* Utilisez !important pour forcer l'affichage */
+  opacity: 1 !important; /* Utilisez !important pour forcer la pleine opacité */
+}
+
+/* Assurez-vous que les flèches ne disparaissent pas après une certaine période */
+.fancybox-button--arrow_right:hover,.
+.fancybox-button--arrow_left:hover {
+  opacity: 1 !important; /* Utilisez !important pour maintenir la visibilité au survol */
+}
+
+/* Ajustez la position du texte si nécessaire */
+.fancybox-button--arrow_right:after,
+.fancybox-button--arrow_left:after {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffffff; /* Couleur du texte */
+  font-family: "space_monoregular"; 
+  font-size: 14px;
+}
+
+.fancybox-button--arrow_right:after {
+  content: "Suivante  \2192";
+  left: -100px; /* Ajustez la taille pour décaler le texte à gauche de la flèche de droite */
+}
+
+.fancybox-button--arrow_left:after {
+  content: "\2190  Précédente";
+  right: -100px; /* Ajustez la taille pour décaler le texte à droite de la flèche de gauche */
+}
+
+@media (max-width: 765px) { 
+  .fancybox-button--arrow_right:after {
+    content: "\2192";
+    left: 10px; /* Ajustez la taille pour décaler la flèche de droite */
+  }
+
+  .fancybox-button--arrow_left:after {
+    content: "\2190";
+    right: 10px; /* Ajustez la taille pour décaler la flèche de gauche */
+  }
+}
+
+// supprime les boutons de navigation d'origine
+.fancybox-navigation .fancybox-button {
+  height: 0px !important;
+} 
+
+.fancybox-caption__body {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-transform: uppercase;
+
+    .fancybox-caption__body__title {
+        font-family: "poppinsregular";
+        font-size: 14px;
+        font-weight: 400;
+        color: white;
+    }
+
+}
+
+// transition de la lightbox
+.fancybox-slide {
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+}
+
+.fancybox-slide--current {
+  opacity: 1;
+}

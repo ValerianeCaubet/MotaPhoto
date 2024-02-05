@@ -16,7 +16,7 @@
 
 /* Règles pour .part-container */
 .part-container {
-  height: calc(100vh - 85px); /* Utilisation de calc pour ajuster la hauteur */
+  height: calc(100vh - 95px); 
 }
 
 /* Règles pour .main-content et .content-body */
@@ -29,7 +29,6 @@
   display: flex;
   width: 100%;
   margin: 0 auto;
-  margin-bottom: 20px;
 }
 
 @media screen and (max-width: 700px) {

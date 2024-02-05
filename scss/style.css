@@ -239,7 +239,7 @@ footer {
 }
 /* Règles pour .part-container */
 .part-container {
-  height: calc(100vh - 85px); /* Utilisation de calc pour ajuster la hauteur */
+  height: calc(100vh - 95px);
 }
 
 /* Règles pour .main-content et .content-body */
@@ -252,7 +252,6 @@ footer {
   display: flex;
   width: 100%;
   margin: 0 auto;
-  margin-bottom: 20px;
 }
 
 @media screen and (max-width: 700px) {
@@ -610,4 +609,77 @@ body {
   .suggested-photo {
     width: 90%;
   }
+}
+.fancybox-custom-layout .fancybox-bg {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* Force les flèches à rester visibles */
+.fancybox-button--arrow_right,
+.fancybox-button--arrow_left {
+  visibility: visible !important; /* Utilisez !important pour forcer l'affichage */
+  opacity: 1 !important; /* Utilisez !important pour forcer la pleine opacité */
+}
+
+/* Assurez-vous que les flèches ne disparaissent pas après une certaine période */
+.fancybox-button--arrow_right:hover,
+.fancybox-button--arrow_left:hover {
+  opacity: 1 !important; /* Utilisez !important pour maintenir la visibilité au survol */
+}
+
+/* Ajustez la position du texte si nécessaire */
+.fancybox-button--arrow_right:after,
+.fancybox-button--arrow_left:after {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffffff; /* Couleur du texte */
+  font-family: "space_monoregular";
+  font-size: 14px;
+}
+
+.fancybox-button--arrow_right:after {
+  content: "Suivante  →";
+  left: -100px; /* Ajustez la taille pour décaler le texte à gauche de la flèche de droite */
+}
+
+.fancybox-button--arrow_left:after {
+  content: "← Précédente";
+  right: -100px; /* Ajustez la taille pour décaler le texte à droite de la flèche de gauche */
+}
+
+@media (max-width: 765px) {
+  .fancybox-button--arrow_right:after {
+    content: "→";
+    left: 10px; /* Ajustez la taille pour décaler la flèche de droite */
+  }
+  .fancybox-button--arrow_left:after {
+    content: "←";
+    right: 10px; /* Ajustez la taille pour décaler la flèche de gauche */
+  }
+}
+.fancybox-navigation .fancybox-button {
+  height: 0px !important;
+}
+
+.fancybox-caption__body {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-transform: uppercase;
+}
+.fancybox-caption__body .fancybox-caption__body__title {
+  font-family: "poppinsregular";
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+}
+
+.fancybox-slide {
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+}
+
+.fancybox-slide--current {
+  opacity: 1;
 }/*# sourceMappingURL=style.css.map */

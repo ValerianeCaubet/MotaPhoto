@@ -31,18 +31,24 @@
 <h1>PHOTOGRAPHE EVENT</h1>
 </section>
 
-<div class="page-container">
+<div class="page-container-front">
 
 <?php
 // Fonction pour afficher le bloc de photo
 function display_photo_block($photo) {
     $photo_image = get_field('photo', $photo->ID);
     $photo_ref = get_field('reference', $photo->ID);
+    
+    // Récupérer les catégories et vérifier si elles existent
     $categories = get_the_terms($photo->ID, 'categorie');
     $category_names = array();
-    foreach ($categories as $category) {
-        $category_names[] = $category->name;
+    
+    if ($categories && !is_wp_error($categories)) {
+        foreach ($categories as $category) {
+            $category_names[] = $category->name;
+        }
     }
+
     $caption = '<h2>' . $photo_ref . '</h2><p>' . implode(', ', $category_names) . '</p>';
     ?>
 

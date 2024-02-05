@@ -12,7 +12,7 @@
 }
 
 /* Assurez-vous que les flèches ne disparaissent pas après une certaine période */
-.fancybox-button--arrow_right:hover,.
+.fancybox-button--arrow_right:hover,
 .fancybox-button--arrow_left:hover {
   opacity: 1 !important; /* Utilisez !important pour maintenir la visibilité au survol */
 }

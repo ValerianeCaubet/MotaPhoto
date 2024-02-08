@@ -96,7 +96,9 @@ wp_reset_postdata();
 
 
 
-
+<div class="more_btn">
+    <button id="load_more">Charger plus</button>
+</div>
 
 
 </div>

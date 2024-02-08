@@ -71,6 +71,7 @@ function enqueue_fancybox() {
     });
 ');
 }
+
 add_action('wp_enqueue_scripts', 'enqueue_fancybox');
 
 

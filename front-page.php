@@ -80,7 +80,7 @@ function display_photo_block($photo) {
 // Modifier la requête WordPress pour obtenir tous les posts de type "photo"
 $args = array(
   'post_type'      => 'photo',
-  'posts_per_page' => -1, // -1 pour récupérer tous les posts
+  'posts_per_page' => 8, // Afficher 8 posts max
 );
 
 $all_photos = get_posts($args);

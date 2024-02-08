@@ -41,6 +41,7 @@
                                 $photo = get_field('photo');
                                 echo $photo['url'];
                                 ?>" alt="photographie">
+
                 </div>
             </div>
         </section>  

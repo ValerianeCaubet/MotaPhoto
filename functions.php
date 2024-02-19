@@ -1,16 +1,15 @@
 <?php
 
-// Ajout des styles 
+///////////////////////// ADD CSS /////////////////////////////
 function enqueue_custom_styles() {
     wp_enqueue_style('custom-style', get_template_directory_uri() . '/scss/style.css');
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_styles');
 
-// Désactivation des paragraphes automatiques dans Contact Form 7
-add_filter('wpcf7_autop_or_not', '__return_false');
 
-// Ajout de jQuery d'un CDN et des scripts JS personnalisés
+///////////////////// ADD JQUERY AND JS SCRIPT //////////////////////
 function script_JS_Custom() {
+
     // Ajout de jQuery
     wp_enqueue_script('jquery-cdn', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js', array(), '3.7.1', true);
 
@@ -19,11 +18,14 @@ function script_JS_Custom() {
 
     // Affichage des images miniature (script JQuery)
     wp_enqueue_script('singleMiniature', get_stylesheet_directory_uri() . '/js/single-photo.js', array('jquery'), '1.0.0', true);
+
+    // Affichage des images miniature (script JQuery)
+    wp_enqueue_script('ajax', get_stylesheet_directory_uri() . '/js/ajax.js', array('jquery'), '1.0.0', true);
 }
 
 add_action('wp_enqueue_scripts', 'script_JS_Custom');
 
-// Enregistrement des menus
+//////////////////////// MENUS REGISTER /////////////////////////
 function register_menus() {
     register_nav_menus(
         array(
@@ -34,7 +36,82 @@ function register_menus() {
 }
 add_action('init', 'register_menus');
 
-// Ajout de Fancybox pour afficher la lightbox
+
+//////////////////// BOUTON LOAD MORE ///////////////////////
+
+
+function load_more_posts() {
+    $args = array(
+        'post_type' => 'photos',
+        'posts_per_page' => 12,
+        'ignore_sticky_posts' => 1,
+        'paged' => $_POST['page'],
+    );
+  
+    // Ajouter la taxonomie "categorie-photo" si elle est sélectionnée
+    if (!empty($_POST['category'])) {
+        $args['tax_query'][] = array(
+            'taxonomy' => 'categorie-photo',
+            'field' => 'slug',
+            'terms' => $_POST['category'],
+        );
+    }
+  
+    // Ajouter la taxonomie "format" si elle est sélectionnée
+    if (!empty($_POST['format'])) {
+        $args['tax_query'][] = array(
+            'taxonomy' => 'format',
+            'field' => 'slug',
+            'terms' => $_POST['format'],
+        );
+    }
+  
+  
+      // Ajouter le tri par date si spécifié
+      if (!empty($_POST['sortType'])) {
+        if ($_POST['sortType'] === 'asc') {
+            $args['orderby'] = 'meta_value';
+            $args['meta_key'] = 'annee';
+            $args['meta_type'] = 'DATE';
+            $args['order'] = 'ASC';
+        } elseif ($_POST['sortType'] === 'desc') {
+            $args['orderby'] = 'meta_value';
+            $args['meta_key'] = 'annee';
+            $args['meta_type'] = 'DATE';
+            $args['order'] = 'DESC';
+        }
+    }
+  
+    $query = new WP_Query($args);
+  
+    if ($query->have_posts()) :
+        while ($query->have_posts()) : $query->the_post();
+            // code pour afficher chaque carte
+            get_template_part('template-part/photo-part');
+        endwhile;
+        //wp_reset_postdata();
+    else :
+        echo 'no-more-posts';
+    endif;
+    wp_reset_postdata();
+    die();
+  }
+  
+  add_action('wp_ajax_load_more_posts', 'load_more_posts');
+  add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');
+  
+  function add_ajax_url_to_front() {
+    ?>
+    <script>
+        var ajaxurl = '<?php echo site_url('/wp-admin/admin-ajax.php'); ?>';
+    </script>
+    <?php
+  }
+  
+  add_action('wp_head', 'add_ajax_url_to_front');
+  
+
+//////////////////////// ADD FANCYBOX - LIGHTBOX ///////////////////////////
 function enqueue_fancybox() {
     // Inclure le CSS de Fancybox
     wp_enqueue_style('fancybox-css', 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css');
@@ -71,7 +148,6 @@ function enqueue_fancybox() {
     });
 ');
 }
-
 add_action('wp_enqueue_scripts', 'enqueue_fancybox');
 
 

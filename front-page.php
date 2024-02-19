@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<!-- Hero -->
+<!-------------------------- HERO HEADER  ------------------------>
 <section class="hero">
 <?php
     // arguments de la requête
@@ -33,8 +33,71 @@
 
 <div class="page-container-front">
 
+
+    <!-- ------------------------------- LIST FILTERS ----------------------- -->
+    
+    <div class="filters-container">
+
+        <div class="selects-taxonomies">
+
+            <!-- liste deroulante Catégories -->
+            <div class="custom-dropdown" id="select-categories">
+                <!-- Bouton déclencheur de la liste déroulante -->
+                <button class="dropdown-button" id="mainDropdownButtonCategories">CATÉGORIES</button>
+                <!-- Contenu de la liste déroulante -->
+                <div class="dropdown-content">
+                    <!-- Bouton initial sans valeur utilisé comme titre -->
+                    <button class="dropdown-item dropdown-item--title-colors" data-value="">Catégories</button>
+                    <!-- Récupére tous les termes de la taxonomie 'categorie-photo'-->
+                    <?php $fields = get_terms(array('taxonomy' => 'categorie-photo')); ?>
+                    <!-- Vérifie s'il y a des termes (catégories) disponibles -->
+                    <?php if ($fields): ?>
+                        <!-- Pour chaque terme (catégorie) obtenu -->
+                        <?php foreach ($fields as $value): ?>
+                            <!-- Vérifie si le terme (catégorie) a un slug et un nom définis  -->
+                            <?php if ($value && isset($value->slug) && isset($value->name)): ?>
+                                <!-- Affiche un bouton représentant chaque catégorie et stocke dans data-value le slug et le nom correspondant -->
+                                <button class="dropdown-item" data-value="<?= $value->slug ?>"><?= $value->name ?></button>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </div>
+            </div>
+
+    <!-- ------------------------FORMATS----------------------------- -->
+            <!-- liste deroulante Formats -->
+            <div class="custom-dropdown" id="select-formats">
+                <button class="dropdown-button" id="mainDropdownButtonFormats">FORMATS</button>
+                <div class="dropdown-content">
+                    <button class="dropdown-item dropdown-item--title-colors" data-value="">Formats</button>
+                    <?php $fields = get_terms(array('taxonomy' => 'format')); ?>
+                    <?php if ($fields): ?>
+                        <?php foreach ($fields as $value): ?>
+                            <?php if ($value && isset($value->slug) && isset($value->name)): ?>
+                                <button class="dropdown-item" data-value="<?= $value->slug ?>"><?= $value->name ?></button>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </div>
+            </div>
+
+        </div>
+
+    <!-- -------------------------DATE------------------------------ -->
+        <!-- liste deroulante date -->
+
+        <div class="custom-dropdown" id="select-by-date">
+            <button class="dropdown-button" id="mainDropdownButtonDate">TRIER PAR</button>
+                <div class="dropdown-content">
+                    <button class="dropdown-item dropdown-item--title-colors" data-value="">Trier par</button>
+                    <button class="dropdown-item" data-value="desc">Plus récents</button>
+                    <button class="dropdown-item" data-value="asc">Plus anciens</button>
+                </div>
+        </div>
+</div>
+
+
 <?php
-// Fonction pour afficher le bloc de photo
 function display_photo_block($photo) {
     $photo_image = get_field('photo', $photo->ID);
     $photo_ref = get_field('reference', $photo->ID);
@@ -94,11 +157,13 @@ endforeach;
 wp_reset_postdata();
 ?>
 
+ <!-- -------------------------LOAD MORE BUTTON------------------------------ -->
 
-
-<div class="more_btn">
-    <button id="load_more">Charger plus</button>
-</div>
+<div class="load-more-btn-container">
+        <button id="load-more-btn" class="load-more">Charger plus</button>
+        <p id="load-more-message"></p>
+        </div>
+</section>
 
 
 </div>

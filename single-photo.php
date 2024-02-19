@@ -40,6 +40,8 @@
                     <img src="<?php
                                 $photo = get_field('photo');
                                 echo $photo['url'];
+                                                // Appel du bloc photo 
+                
                                 ?>" alt="photographie">
 
                 </div>
@@ -131,18 +133,17 @@
 
         $query = new WP_Query($args);
 
-        if ($query->have_posts()) {
-            while ($query->have_posts()) {
-                $query->the_post();
 
-                // Vérifier si la photo a une vignette avant de l'afficher
-                if (has_post_thumbnail()) {
-                    get_template_part('template-part/photo-part');
-                }
-            }
-            // Réinitialiser les données post
+                // Appel du bloc photo 
+                if ($query->have_posts()) :
+                    while ($query->have_posts()) :
+                        $query->the_post();
+                        get_template_part('template-part/photo-part'); // Appel du block photo pour l'ensemble des photos affichées
+        
+                    endwhile;
+            endif;
             wp_reset_postdata();
-        }
+        
         ?>
     </div>
 

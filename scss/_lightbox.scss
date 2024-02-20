@@ -1,23 +1,26 @@
-// CSS de la lightbox 
+//////////////////////////////// LIGHTBOX CSS ///////////////////////////////////////////
+/// ////////////////////////////////////////////////////////////////////////////////////
 
 .fancybox-custom-layout .fancybox-bg {
     background: rgba(0, 0, 0, 0.8);
 }
 
-/* Force les flèches à rester visibles */
+//////////////////////////// FLECHES //////////////////////////////////////
+/// //////////////////////////////////////////////////////////////////////
+
 .fancybox-button--arrow_right,
 .fancybox-button--arrow_left {
-  visibility: visible !important; /* Utilisez !important pour forcer l'affichage */
-  opacity: 1 !important; /* Utilisez !important pour forcer la pleine opacité */
+  visibility: visible !important; 
+  opacity: 1 !important;
 }
 
-/* Assurez-vous que les flèches ne disparaissent pas après une certaine période */
+
 .fancybox-button--arrow_right:hover,
 .fancybox-button--arrow_left:hover {
-  opacity: 1 !important; /* Utilisez !important pour maintenir la visibilité au survol */
+  opacity: 1 !important;
 }
 
-/* Ajustez la position du texte si nécessaire */
+
 .fancybox-button--arrow_right:after,
 .fancybox-button--arrow_left:after {
   position: absolute;
@@ -56,13 +59,13 @@
 } 
 
 
-/* CSS de la lightbox */
+//////////////////////////////// TITRES LIGHTBOX /////////////////////////////////////////
+/// /////////////////////////////////////////////////////////////////////////////////////
 
-/* CSS pour placer caption body sous l'image avec mots alignés aux coins */
+// CSS pour placer caption body sous l'image avec mots alignés aux coins 
+
 .fancybox-caption__body {
-  display: flex;
-  justify-content: space-around;
-  align-items: center; /* Aligner verticalement */
+  display: inline;
   text-transform: uppercase;
   font-family: "space_monoregular";
   font-size: 14px;
@@ -70,9 +73,22 @@
   color: white;
   margin-top: 10px; /* Ajustez la marge supérieure selon votre mise en page */
 }
+
+// CSS pour différencier les mots 
+
+.fancybox-caption__body h2 {
+  margin-right: auto; /* Pour aligner le premier mot à gauche */
+}
+
+.fancybox-caption__body p {
+  margin-left: auto; /* Pour aligner le deuxième mot à droite */
+}
+
  
 
-/* CSS pour la transition de la lightbox */
+////////////////////////////////// transition de la lightbox ///////////////////////////////////////
+/// ////////////////////////////////////////////////////////////////////////////////////////////////
+
 .fancybox-slide {
   transition: opacity 0.3s ease-in-out;
   opacity: 0;

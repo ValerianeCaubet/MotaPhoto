@@ -1,3 +1,4 @@
+///////////////////// MINIATURES ////////////////////////
 console.log("single-photo.js est lancé");
 
 window.addEventListener("DOMContentLoaded", () => {

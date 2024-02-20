@@ -1,24 +1,26 @@
-// CSS de la page single photo
+//////////////////////////////////// SINGLE PHOTO CSS ///////////////////////
+/// /////////////////////////////////////////////////////////////////////////
 
 .page-container{
   margin:0 auto;
   width: 100%;
   max-width: 1200px;
   position: relative;
+  height: auto;
   @media screen and (max-width: 1250px) {
     width: 90%;
   }
 } 
 
 
-/* Règles pour .part-container */
+// Règles pour .part-container 
 .part-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-/* Règles pour .main-content et .content-body */
+// Règles pour .main-content et .content-body 
 
 .content-body {
   width: 100%;
@@ -86,7 +88,9 @@
     height: auto; /* Maintient le rapport largeur/hauteur de l'image */
   }
   
-    // section contact et carrousel
+ ////////////////////////////// SECTION CONTACT ET CARROUSSEL /////////////////////////////////
+ /// /////////////////////////////////////////////////////////////////////////////////////////
+ 
     .contact-carrousel {
       display: flex;
       height: 118px;
@@ -132,7 +136,8 @@
       border: 2px solid black;
     }
   
-  // partie carrousel miniature
+/////////////////////////// MINIATURES CARROUSSELS ///////////////////////////////////
+/// /////////////////////////////////////////////////////////////////////////////////
 
   .interaction-photo {
   display: flex;
@@ -192,8 +197,10 @@
     display: none;
   }
   }
-  // section photos apparentées
- /* Styles pour la section suggested-photo */
+ 
+  
+/////////////////////////////////////////// SUGGESTED PHOTOS ////////////////////////////////////
+/// /////////////////////////////////////////////////////////////////////////////////////////////
 
 .photo-suggestions {
   display: flex;
@@ -219,7 +226,7 @@
   }
 }
 
-/* Styles supplémentaires */
+
 .suggested-photo-container h3 {
   font-family: "space_monoregular";
   text-transform: uppercase;
@@ -234,7 +241,9 @@
 }
   
   
-  // Toutes les photos
+//////////////////////// ALL PICS BUTTON /////////////////////////////////
+/// //////////////////////////////////////////////////////////////////////
+
   .all-photos-btn {
     display: flex;
     justify-content: center;

@@ -1,4 +1,5 @@
-<!-- Template pour l' affichage d' une seul post et ses détails (ici uniquement pour les photos) -->
+<!------------------------------ TEMPLATE SINGLE PHOTOS ----------------------->
+<!----------------------------------------------------------------------------->
 
 <?php get_header(); ?>
 
@@ -10,7 +11,9 @@
     <div class="page-container">
         <div class="part-container"> 
 
-        <!-- section détail photo -->
+        <!---------------------------------- DETAILS PHOTOS ------------------------------>
+        <!-------------------------------------------------------------------------------->
+
         <section class="main-content">
             <div class="content-body">
                 <div class="title-type">
@@ -48,7 +51,9 @@
             </div>
         </section>  
         
-        <!-- section contact et carrousel miniature -->
+        <!--------------------------------- CONTACT ET CARROUSSEL --------------------------->
+        <!----------------------------------------------------------------------------------->
+
         <section class="contact-carrousel">
             
             <div class="contact-btn">
@@ -110,7 +115,10 @@
             </div>
          </div>
         </section>
-<!-- section photos apparentées -->
+
+<!-------------------------- SUGGESTED PHOTOS  ------------------------------------->
+<!----------------------------------------------------------------------------------> 
+
 <section class="suggested-photo-container">       
     <h3>Vous aimerez AUSSI</h3>
 
@@ -146,6 +154,9 @@
         
         ?>
     </div>
+
+    <!---------------------------- ALL PICS BUTTON ----------------------------->
+    <!-------------------------------------------------------------------------->
 
     <div class="all-photos-btn">
         <a href="<?php echo home_url(); ?>">

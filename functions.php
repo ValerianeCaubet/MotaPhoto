@@ -53,7 +53,7 @@ function custom_load_more_scripts() {
     // Passer la variable ajaxurl à JavaScript
     wp_localize_script('custom-load-more', 'load_more_params', array(
         'ajaxurl' => admin_url('admin-ajax.php'),
-        'posts_per_page' => 2, // Nombre de posts à charger à chaque fois
+        'posts_per_page' => 8, // Nombre de posts à charger à chaque fois
     ));
 }
 add_action('wp_enqueue_scripts', 'custom_load_more_scripts');
@@ -64,7 +64,7 @@ function custom_load_more_posts() {
     error_log('Données reçues : ' . print_r($_POST, true));
 
     $page = isset($_POST['paged']) ? $_POST['paged'] : 1;
-    $posts_per_page = isset($_POST['posts_per_page']) ? $_POST['posts_per_page'] : 2; // Nombre de posts par page
+    $posts_per_page = isset($_POST['posts_per_page']) ? $_POST['posts_per_page'] : 6; // Nombre de posts par page
 
     // Débogage - Vérifier les valeurs de page et de posts_per_page
     error_log('Page : ' . $page . ', Posts par page : ' . $posts_per_page);

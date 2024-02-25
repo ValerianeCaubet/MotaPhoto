@@ -1,6 +1,8 @@
 <?php get_header(); ?>
 
 <!-------------------------- HERO HEADER  ------------------------>
+ <!---------------------------------------------------------------->
+ 
 <section class="hero">
 <?php
     // arguments de la requête
@@ -35,6 +37,7 @@
 
 
     <!-- ------------------------------- LIST FILTERS ----------------------- -->
+     <!----------------------------------------------------------------------------->
     
     <div class="filters-container">
 
@@ -65,6 +68,8 @@
             </div>
 
     <!-- ------------------------FORMATS----------------------------- -->
+     <!------------------------------------------------------------------>
+
             <!-- liste deroulante Formats -->
             <div class="custom-dropdown" id="select-formats">
                 <button class="dropdown-button" id="mainDropdownButtonFormats">FORMATS</button>
@@ -84,6 +89,7 @@
         </div>
 
     <!-- -------------------------DATE------------------------------ -->
+     <!----------------------------------------------------------------->
         <!-- liste deroulante date -->
 
         <div class="custom-dropdown" id="select-by-date">
@@ -107,7 +113,7 @@
 
 $args = array(
   'post_type'      => 'photo',
-  'posts_per_page' => 2, // Afficher 8 posts max
+  'posts_per_page' => 8, // Afficher 8 posts max
   'paged' => 1 // pagination
 );
 
@@ -115,7 +121,9 @@ $args = array(
 $query = new WP_Query($args);
 
 // boucle sur les résultats
-if ($query->have_posts()) ?> <div id="post-container"> <?php {
+if ($query->have_posts()) ?> 
+<div id="post-container">
+     <?php {
    
     while ($query->have_posts()) {
         $query->the_post();
@@ -123,7 +131,8 @@ if ($query->have_posts()) ?> <div id="post-container"> <?php {
           
         <?php
          get_template_part('template-part/photo-part');
-    } ?> </div>
+    } ?> 
+</div>
 <?php }
 
 
@@ -134,6 +143,7 @@ wp_reset_postdata();
 </div>
 
  <!-- -------------------------LOAD MORE BUTTON------------------------------ -->
+ <!----------------------------------------------------------------------------->
 
 <div class="load-more-btn-container">
         <button id="load-more-btn" class="load-more">Charger plus</button>

@@ -3,10 +3,11 @@
 
 .page-container{
   margin:0 auto;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   max-width: 1200px;
   position: relative;
-  height: auto;
   @media screen and (max-width: 1250px) {
     width: 90%;
   }
@@ -17,15 +18,13 @@
 .part-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-}
+  justify-content: space-between;}
 
 // Règles pour .main-content et .content-body 
 
 .content-body {
   width: 100%;
   display: flex; /* Utilisation de flexbox pour aligner les blocs */
-  flex-wrap: wrap; /* Les blocs passent à la ligne lorsque l'écran est étroit */
   justify-content: center;
   align-items: end;
   justify-content: space-between; /* Espacement entre les blocs */
@@ -41,12 +40,14 @@
 
     
     .title-type {
-      flex-basis: 50%; /* 50% de largeur */
+      display: flex;
+      flex-direction: column;
+      width: 50%;
       padding-bottom: 20px; /* Ajoutez une marge intérieure pour l'espace */
       margin-top: 20px;
       box-sizing: border-box; /* Pour inclure la marge intérieure dans la largeur de 50% */
       border-bottom: 1px solid black;
-      font-family: "Space Mono";
+      font-family: "space_monoregular";
       font-size: 14px;
       font-weight: 400;
       line-height: 20px;
@@ -77,16 +78,19 @@
       
     }
     .photo-container {
-      flex-basis: 50%; /* 50% de largeur */
-      display: flex; /* Utilisation de flexbox pour centrer l'image */
-      justify-content: center; /* Centrage horizontal de l'image */
-      align-items: center; /* Centrage vertical de l'image */
-  }
-  
-  .photo-container img {
-    max-width: 100%; /* Garantit que l'image ne dépasse pas la largeur du bloc */
-    height: auto; /* Maintient le rapport largeur/hauteur de l'image */
-  }
+      display: flex;
+      align-items: center; /* Centrer verticalement la photo */
+      justify-content: center;
+      width: 50%; /* 50% de l'écran */
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .photo-container img {
+      max-width: 100%; /* Pour que l'image s'adapte à la largeur du conteneur */
+      height: auto; /* Ajustement automatique de la hauteur en fonction de la largeur */
+    }
+    
   
  ////////////////////////////// SECTION CONTACT ET CARROUSSEL /////////////////////////////////
  /// /////////////////////////////////////////////////////////////////////////////////////////
@@ -205,6 +209,7 @@
 .photo-suggestions {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 3vh;
 }
 
 .suggested-photo {

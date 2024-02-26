@@ -2,7 +2,7 @@
 
 <!-------------------------- HERO HEADER  ------------------------>
  <!---------------------------------------------------------------->
- 
+
 <section class="hero">
 <?php
     // arguments de la requête
@@ -102,14 +102,10 @@
         </div>
 </div>
 
+<!--------------------------------- GALERIE ----------------------------->
+<!----------------------------------------------------------------------->
 
 <?php
-
-
-
-// Modifier la requête WordPress pour obtenir tous les posts de type "photo"
-
- 
 
 $args = array(
   'post_type'      => 'photo',

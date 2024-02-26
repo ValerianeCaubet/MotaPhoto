@@ -40,15 +40,30 @@
                 </div>
 
                 <div class="photo-container">
-                    <img src="<?php
-                                $photo = get_field('photo');
-                                echo $photo['url'];
-                                                // Appel du bloc photo 
-                
-                                ?>" alt="photographie">
+                    
+                <?php
 
-                </div>
-                
+                    $args = array(
+                    'post_type'      => 'photo',
+                    'posts_per_page' => 1,
+                    );
+
+                    // création d' une nouvelle instance de WP_Query
+                    $query = new WP_Query($args);
+
+                    // boucle sur les résultats
+                    if ($query->have_posts()) ?> 
+                    <div>
+                        <?php {
+                    
+                        while ($query->have_posts()) {
+                            $query->the_post();
+                            ?>
+                            
+                            <?php
+                            get_template_part('template-part/photo-part-single');
+                        } }?> 
+                    </div>
             </div>
         </section>  
         

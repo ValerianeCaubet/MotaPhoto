@@ -1,8 +1,11 @@
-<div class="suggested-photo">
-    <img class="photo-template" src="<?php $photo = get_field('photo'); echo $photo['url']; ?>" alt="photographie">
+<div class="suggested-photo-single">
+<img class="photo-template-single" src="<?php
+                                $photo = get_field('photo');
+                                echo $photo['url'];
+                                ?>" alt="photographie">
 
-    <div class="overlay">
-        <div class="overlay-fullscreen">
+    <div class="overlay-single">
+        <div class="overlay-fullscreen-single">
             <?php
             $title = get_the_title();
             $categories = get_the_terms(get_the_ID(), 'categorie');
@@ -19,15 +22,9 @@
             </a>
         </div>
 
-        <div class="overlay-part">
-            <a href="<?php echo get_permalink(); ?>">
-                <img src="<?php echo get_template_directory_uri() ?>/assets/img/Icon_eye.png" alt="">
-            </a>
-        </div>
-
-        <div class="overlay-text">
-            <p class="overlay-title"><?php echo get_the_title() ?></p>
-            <p class="overlay-category">
+        <div class="overlay-text-single">
+            <p class="overlay-title-single"><?php echo get_the_title() ?></p>
+            <p class="overlay-category-single">
                 <?php
                 $categories = get_the_terms(get_the_ID(), 'categorie');
                 foreach ((array)$categories as $category) {
